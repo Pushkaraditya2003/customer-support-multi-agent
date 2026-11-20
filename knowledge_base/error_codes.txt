@@ -1,0 +1,23 @@
+# Enterprise Support Desk - Standard Error Codes Catalog
+
+## Error Code Reference and Remediation Procedures
+
+### ERR-1001: Gateway Request Timeout
+- Meaning: The upstream microservice did not respond within the 30-second SLA timeout threshold.
+- Root Cause: Temporary database lock, downstream queue backlog, or heavy network congestion.
+- Solution: Advise the user to wait 60 seconds and retry using exponential backoff. Do not spam consecutive refresh requests. If persistent for >10 minutes, check status.enterprise-desk.com for active incident reports.
+
+### ERR-1002: Unauthorized API Call / Expired Token
+- Meaning: The session JWT authentication token is expired, invalid, or forged.
+- Root Cause: Token lifetime (8 hours) has lapsed, or user logged in from an alternate IP address without 2FA re-verification.
+- Solution: Prompt user to log out completely, clear application cookies for domain '.enterprise-desk.com', and re-authenticate via SSO.
+
+### ERR-2005: Database Sync Conflict
+- Meaning: Optimistic concurrency lock failed because another agent or batch process modified the record simultaneously.
+- Root Cause: Simultaneous edit conflict on the same ticket record.
+- Solution: Reload the specific ticket view to pull the latest state revision. Reapply your update on top of the refreshed snapshot.
+
+### ERR-4030: API Rate Limit Exceeded
+- Meaning: The client exceeded 120 requests per minute per IP address.
+- Root Cause: Misconfigured automated scripts, rapid automated polling, or shared corporate NAT IP.
+- Solution: Implement a token bucket or 1-second throttle in the API client. Contact enterprise support to request high-volume tier whitelisting.

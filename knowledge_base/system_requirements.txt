@@ -1,0 +1,18 @@
+# Enterprise Support Desk - System Requirements & Environment Compatibility
+
+## Supported Operating Systems
+- Windows 10 (21H2+) and Windows 11 (64-bit editions)
+- macOS 13 (Ventura) and macOS 14 (Sonoma) on Apple Silicon and Intel x86_64
+- Ubuntu LTS 22.04 and 24.04 (Debian-based distributions)
+
+## Supported Web Browsers
+- Google Chrome: Version 115 or newer (Recommended)
+- Microsoft Edge: Version 115 or newer (Chromium-based)
+- Mozilla Firefox: Version 118 or newer
+- Safari: Version 16.4 or newer (macOS and iPadOS only)
+Note: Internet Explorer and legacy Microsoft Edge (EdgeHTML) are strictly deprecated and unsupported.
+
+## Minimum Hardware Specifications
+- Processor: Dual-core 2.0 GHz or higher (Quad-core recommended for multi-window triage)
+- RAM: Minimum 4 GB available system memory (8 GB recommended)
+- Network Bandwidth: Stable broadband connection with minimum 5 Mbps upload and download speed.

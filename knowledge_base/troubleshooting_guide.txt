@@ -1,0 +1,21 @@
+# Enterprise Support Desk - Troubleshooting Guide
+
+## Section 1: General Application Troubleshooting
+When experiencing application freezing, slow load times, or unexpected UI glitches:
+1. Hard refresh the web interface using Ctrl+F5 (Windows) or Cmd+Shift+R (Mac) to clear cached JavaScript bundles.
+2. Verify browser hardware acceleration is enabled under Settings > System.
+3. Disable conflicting third-party browser extensions, particularly ad-blockers or privacy shields that block WebSocket connections.
+4. If problem persists across browsers, check your local DNS cache by running 'ipconfig /flushdns' in the terminal.
+
+## Section 2: Connection and Gateway Timeouts
+If the application shows 'Connecting...' or fails with connection drops:
+1. Verify outbound TCP port 443 and WebSocket port 8443 are open on your corporate network firewall.
+2. Confirm the corporate VPN is not intercepting TLS sessions without our root certificate installed.
+3. Test network latency to our regional edge gateway using ping test: ping gateway.enterprise-desk.internal.
+4. If packet loss exceeds 2%, restart your local router or request IT network proxy exemption.
+
+## Section 3: Performance Optimization and Memory Leaks
+For high-volume dashboard users reporting browser lag after extended shifts:
+1. Limit open ticket tabs to a maximum of 15 concurrent sessions.
+2. Enable 'Compact Table View' under User Preferences > Accessibility to reduce DOM node counts.
+3. Restart the desktop wrapper app every 8 hours to allow the garbage collector to reclaim heap memory.

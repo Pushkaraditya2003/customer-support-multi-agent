@@ -1,0 +1,15 @@
+# Enterprise Support Desk - API Integration Guide
+
+## Authentication and API Key Provisioning
+All programmatic requests to the Enterprise Support REST API require a Bearer token in the Authorization header:
+  Authorization: Bearer <YOUR_API_SECRET_KEY>
+
+To generate a new production API key:
+1. Sign in to the Developer Portal at https://developers.enterprise-desk.com.
+2. Navigate to Organization Settings > API Credentials.
+3. Click 'Create Service Key', select the appropriate scopes (tickets:read, tickets:write), and store the generated key securely. Keys cannot be viewed again after initial generation.
+
+## Idempotency and Webhook Handling
+1. Always include the 'Idempotency-Key: <UUIDv4>' header on POST /v1/tickets requests to prevent duplicate ticket generation during network retries.
+2. Webhook endpoints must respond with HTTP 200 OK within 3000ms. Failed webhook deliveries are retried up to 5 times over a 24-hour exponential window.
+3. Webhook signatures must be verified using HMAC-SHA256 with your webhook signing secret.
