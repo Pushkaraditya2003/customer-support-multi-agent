@@ -213,6 +213,29 @@ Launch Jupyter Notebook to view all 7 demonstration scenarios:
 jupyter notebook notebooks/customer_support_demo.ipynb
 ```
 
+### 5. Launch the Streamlit Frontend Dashboard
+Launch the interactive web interface:
+```powershell
+streamlit run app.py
+```
+Or directly using the environment's Python binary:
+```powershell
+& "C:\Users\ASUS\.conda\envs\cse476\python.exe" -m streamlit run app.py
+```
+In Git Bash:
+```bash
+/c/Users/ASUS/.conda/envs/cse476/python.exe -m streamlit run app.py
+```
+Features available in the dashboard:
+- **Preset Scenarios Picker:** One-click loading of Billing, Technical RAG, Account Lockout, Insufficient Evidence Escalation, and Out-of-Domain queries.
+- **Visual Multi-Agent Breakdown:** Category badge, confidence meter, extracted entities, and assigned queue.
+- **RAG Inspector:** Document citations and relevance metrics.
+- **Human Escalation Alert:** Priority level, target tier, and full briefing memorandum.
+- **Reviewer Agent Quality Report:** Tone score, completeness rating, and revision cycle counter.
+- **Shared Blackboard Viewer:** Full inspectable state snapshot.
+- **Auditable Event Log:** Interactive table showing all chronological agent actions and timestamps.
+- **Multi-Turn Chat Memory:** Retains prior tickets per customer for contextual follow-up questions.
+
 ---
 
 ## 8. Alignment with Official Teacher Specifications

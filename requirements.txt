@@ -1,4 +1,4 @@
-# Core dependencies (pre-installed in cse476 conda environment)
+# Core dependencies (installed in cse476 conda environment)
 semantic-kernel>=1.44.1
 groq>=1.7.0
 openai>=2.54.0
@@ -13,3 +13,4 @@ pandas>=3.0.6
 rich>=15.0.0
 httpx>=0.28.1
 tiktoken>=0.13.0
+streamlit>=1.40.0
